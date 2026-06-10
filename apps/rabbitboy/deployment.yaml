@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rabbitboy-static
-          image: rabbitboy0134/rabbitboy-static:sha-672b104
+          image: rabbitboy0134/rabbitboy-static:sha-fa5052b0dad1d73fe411403a99214d3875d796a9
           ports:
             - containerPort: 80
           readinessProbe:
