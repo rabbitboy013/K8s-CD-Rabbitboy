@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rabbitboy-static
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/rabbitboy013/K8s-CD-Rabbitboy.git
+    targetRevision: main
+    path: apps/rabbitboy
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rabbitboy
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
