@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitboy-frontend
+  namespace: rabbitboy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rabbitboy-frontend
+  template:
+    metadata:
+      labels:
+        app: rabbitboy-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: rabbitboy0134/rabbitboy-frontend:sha-683d7a82a013db7b94bd2568bed2d33bd18565e4
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 5
