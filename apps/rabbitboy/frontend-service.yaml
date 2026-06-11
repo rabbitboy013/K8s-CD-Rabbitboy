@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rabbitboy-static
+  name: rabbitboy-frontend
   namespace: rabbitboy
 spec:
   selector:
-    app: rabbitboy-static
+    app: rabbitboy-frontend
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 80
   type: ClusterIP
